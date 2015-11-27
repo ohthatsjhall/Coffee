@@ -1,13 +1,14 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6211" systemVersion="14A298i" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9059" systemVersion="14F1021" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6204"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9049"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="Coffee" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -15,11 +16,69 @@
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="kzJ-DJ-NTh">
+                                <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                            </mapView>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="mgz-es-pBc">
+                                <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </tableView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="mgz-es-pBc" secondAttribute="trailing" id="Ddq-H4-1IX"/>
+                            <constraint firstItem="mgz-es-pBc" firstAttribute="width" secondItem="kzJ-DJ-NTh" secondAttribute="width" id="Ki4-SL-Fq4"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="mgz-es-pBc" secondAttribute="bottom" id="UGc-Sv-MLd"/>
+                            <constraint firstItem="mgz-es-pBc" firstAttribute="top" secondItem="kzJ-DJ-NTh" secondAttribute="bottom" id="UGw-PY-IlL"/>
+                            <constraint firstItem="kzJ-DJ-NTh" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="lqn-BN-tpD"/>
+                            <constraint firstItem="mgz-es-pBc" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="o6j-Kb-9oR"/>
+                            <constraint firstItem="kzJ-DJ-NTh" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="pvk-O9-Cdo"/>
+                            <constraint firstItem="mgz-es-pBc" firstAttribute="height" secondItem="kzJ-DJ-NTh" secondAttribute="height" id="qRO-xG-83B"/>
+                            <constraint firstAttribute="trailing" secondItem="kzJ-DJ-NTh" secondAttribute="trailing" id="zKR-bq-Gft"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="subviews">
+                                <exclude reference="kzJ-DJ-NTh"/>
+                                <exclude reference="mgz-es-pBc"/>
+                            </mask>
+                            <mask key="constraints">
+                                <exclude reference="lqn-BN-tpD"/>
+                                <exclude reference="pvk-O9-Cdo"/>
+                                <exclude reference="zKR-bq-Gft"/>
+                                <exclude reference="Ddq-H4-1IX"/>
+                                <exclude reference="Ki4-SL-Fq4"/>
+                                <exclude reference="UGw-PY-IlL"/>
+                                <exclude reference="o6j-Kb-9oR"/>
+                                <exclude reference="qRO-xG-83B"/>
+                                <exclude reference="UGc-Sv-MLd"/>
+                            </mask>
+                        </variation>
+                        <variation key="heightClass=regular-widthClass=compact">
+                            <mask key="subviews">
+                                <include reference="kzJ-DJ-NTh"/>
+                                <include reference="mgz-es-pBc"/>
+                            </mask>
+                            <mask key="constraints">
+                                <include reference="lqn-BN-tpD"/>
+                                <include reference="pvk-O9-Cdo"/>
+                                <include reference="zKR-bq-Gft"/>
+                                <include reference="Ddq-H4-1IX"/>
+                                <include reference="Ki4-SL-Fq4"/>
+                                <include reference="UGw-PY-IlL"/>
+                                <include reference="o6j-Kb-9oR"/>
+                                <include reference="qRO-xG-83B"/>
+                                <include reference="UGc-Sv-MLd"/>
+                            </mask>
+                        </variation>
                     </view>
+                    <connections>
+                        <outlet property="mapView" destination="kzJ-DJ-NTh" id="fpu-TH-jPT"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="304.5" y="534"/>
         </scene>
     </scenes>
 </document>
