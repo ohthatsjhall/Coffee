@@ -14,6 +14,7 @@
 		7BC0306F1C08080100456AFD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7BC0306E1C08080100456AFD /* Assets.xcassets */; };
 		7BC030721C08080100456AFD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7BC030701C08080100456AFD /* LaunchScreen.storyboard */; };
 		7BC0307A1C080D3700456AFD /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7BC030791C080D3700456AFD /* MapKit.framework */; };
+		7BC0307C1C08A5BF00456AFD /* CoffeeAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BC0307B1C08A5BF00456AFD /* CoffeeAPI.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -27,6 +28,7 @@
 		7BC030711C08080100456AFD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		7BC030731C08080100456AFD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7BC030791C080D3700456AFD /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		7BC0307B1C08A5BF00456AFD /* CoffeeAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoffeeAPI.swift; sourceTree = "<group>"; };
 		9A2006099334D3C7703FCA50 /* Pods-Coffee.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Coffee.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Coffee/Pods-Coffee.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -88,6 +90,7 @@
 				7BC0306E1C08080100456AFD /* Assets.xcassets */,
 				7BC030701C08080100456AFD /* LaunchScreen.storyboard */,
 				7BC030731C08080100456AFD /* Info.plist */,
+				7BC0307B1C08A5BF00456AFD /* CoffeeAPI.swift */,
 			);
 			path = Coffee;
 			sourceTree = "<group>";
@@ -215,6 +218,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				7BC0306A1C08080100456AFD /* ViewController.swift in Sources */,
+				7BC0307C1C08A5BF00456AFD /* CoffeeAPI.swift in Sources */,
 				7BC030681C08080100456AFD /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
