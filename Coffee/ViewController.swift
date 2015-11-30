@@ -15,7 +15,7 @@ class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
   @IBOutlet weak var tableView: UITableView!
   @IBOutlet weak var mapView: MKMapView?
   
-  var venues: Results<Venue>?
+  var venues: [Venue]?
   
   var lastLocation: CLLocation?
   var locationManager: CLLocationManager?
@@ -84,6 +84,15 @@ class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
     return cell!
   }
   
+  func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+    
+    if let venue = venues?[indexPath.row] {
+      let region = MKCoordinateRegionMakeWithDistance(CLLocationCoordinate2D(latitude: Double(venue.latitude), longitude: Double(venue.longitude)), distanceSpan, distanceSpan)
+      mapView?.setRegion(region, animated: true)
+    }
+    
+  }
+  
   func locationManager(manager: CLLocationManager, didUpdateToLocation newLocation: CLLocation, fromLocation oldLocation: CLLocation) {
     if let mapView = self.mapView {
       let region = MKCoordinateRegionMakeWithDistance(newLocation.coordinate, distanceSpan, distanceSpan)
@@ -106,9 +115,17 @@ class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
         
       }
       
+      let (start, stop) = calculateCoordinatesWithRegion(location)
+      
+      let predicate = NSPredicate(format: "latitude < %f AND latitude > %f AND longitude < %f", start.latitude, stop.latitude, start.longitude, stop.longitude)
+      
       let realm = try! Realm()
       
-      venues = realm.objects(Venue)
+      //venues = realm.objects(Venue)
+      
+      venues = realm.objects(Venue).filter(predicate).sort {
+        location.distanceFromLocation($0.coordinate) < location.distanceFromLocation($1.coordinate)
+      }
       
       for venue in venues! {
         
@@ -117,10 +134,25 @@ class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
         mapView?.addAnnotation(annotation)
       }
     }
+    tableView?.reloadData()
   }
   
   func onVenuesUpdated(notification: NSNotification) {
     refreshVenues(nil)
+  }
+  
+  func calculateCoordinatesWithRegion(location:CLLocation) -> (CLLocationCoordinate2D, CLLocationCoordinate2D) {
+    let region = MKCoordinateRegionMakeWithDistance(location.coordinate, distanceSpan, distanceSpan)
+    
+    var start:CLLocationCoordinate2D = CLLocationCoordinate2D()
+    var stop:CLLocationCoordinate2D = CLLocationCoordinate2D()
+    
+    start.latitude  = region.center.latitude  + (region.span.latitudeDelta  / 2.0)
+    start.longitude = region.center.longitude - (region.span.longitudeDelta / 2.0)
+    stop.latitude   = region.center.latitude  - (region.span.latitudeDelta  / 2.0)
+    stop.longitude  = region.center.longitude + (region.span.longitudeDelta / 2.0)
+    
+    return (start, stop)
   }
   
   func mapView(mapView: MKMapView, viewForAnnotation annotation: MKAnnotation) -> MKAnnotationView? {
