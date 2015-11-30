@@ -43,6 +43,7 @@
                                 <exclude reference="mgz-es-pBc"/>
                             </mask>
                             <mask key="constraints">
+                                <exclude reference="UGc-Sv-MLd"/>
                                 <exclude reference="lqn-BN-tpD"/>
                                 <exclude reference="pvk-O9-Cdo"/>
                                 <exclude reference="zKR-bq-Gft"/>
@@ -51,7 +52,6 @@
                                 <exclude reference="UGw-PY-IlL"/>
                                 <exclude reference="o6j-Kb-9oR"/>
                                 <exclude reference="qRO-xG-83B"/>
-                                <exclude reference="UGc-Sv-MLd"/>
                             </mask>
                         </variation>
                         <variation key="heightClass=regular-widthClass=compact">
@@ -60,6 +60,7 @@
                                 <include reference="mgz-es-pBc"/>
                             </mask>
                             <mask key="constraints">
+                                <include reference="UGc-Sv-MLd"/>
                                 <include reference="lqn-BN-tpD"/>
                                 <include reference="pvk-O9-Cdo"/>
                                 <include reference="zKR-bq-Gft"/>
@@ -68,12 +69,12 @@
                                 <include reference="UGw-PY-IlL"/>
                                 <include reference="o6j-Kb-9oR"/>
                                 <include reference="qRO-xG-83B"/>
-                                <include reference="UGc-Sv-MLd"/>
                             </mask>
                         </variation>
                     </view>
                     <connections>
                         <outlet property="mapView" destination="kzJ-DJ-NTh" id="fpu-TH-jPT"/>
+                        <outlet property="tableView" destination="mgz-es-pBc" id="57t-ia-A12"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
